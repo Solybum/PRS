@@ -3,38 +3,38 @@
 namespace PSO.PRS
 {
     /// <summary>
-    /// PRS library
+    /// PRS main functions
     /// </summary>
     public class PRS
     {
         /// <summary>
-        /// Compress a byte array and return the processed data in a new byte array
+        /// Compresses data
         /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
+        /// <param name="data">Uncompressed data</param>
+        /// <returns>Returns the compressed data</returns>
         public static byte[] Compress(byte[] data)
         {
             Context ctx = new Context(data);
 
-            PRSCompression.Compress(ctx);
+            Compression.Compress(ctx);
             Array.Resize(ref ctx.dst, ctx.dst_pos);
 
             return ctx.dst;
         }
-        
+
         /// <summary>
-        /// Decompress a byte array and return the processed data in a new byte array
+        /// Decompresses data
         /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
+        /// <param name="data">Compressed data</param>
+        /// <returns>Returns the decompressed data</returns>
         public static byte[] Decompress(byte[] data)
         {
             Context ctx = new Context(data);
 
-            int decompressed_size = PRSDecompression.Decompress(ctx, true);
+            int decompressed_size = Decompression.Decompress(ctx, true);
             Array.Resize(ref ctx.dst, decompressed_size);
             ctx.Reset();
-            PRSDecompression.Decompress(ctx, false);
+            Decompression.Decompress(ctx, false);
 
             return ctx.dst;
         }

@@ -1,9 +1,3 @@
-cd ../src/PRS/bin/Release
+dotnet pack ./../src/PRS/PRS.csproj
 
-del *.nupkg
-
-nuget pack "../../PRS.csproj" -Prop Configuration=Release
-
-nuget push "*.nupkg" -Source https://www.nuget.org/api/v2/package
-
-cd ../../../../build
+dotnet nuget push ./../src/PRS/bin/Release/PRS.1.1.0.nupkg -s https://api.nuget.org/v3/index.json

@@ -1,10 +1,14 @@
-﻿namespace PSO.PRS
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace PSO.PRS
 {
-    class Context
+    internal class Context
     {
-        internal int bits;
-        internal byte flag;
-        internal int flag_pos;
+        internal int bitPosition;
+        internal byte controlByte;
+        internal int controlByteIndex;
 
         internal byte[] src;
         internal int src_pos;
@@ -13,16 +17,19 @@
 
         internal Context(byte[] src)
         {
+            this.src_pos = 0;
+            this.dst_pos = 0;
+            this.controlByte = 0;
+            this.bitPosition = 0;
             this.src = src;
-            this.dst = new byte[src.Length];
+            this.dst = new byte[src.Length * 4];
         }
         internal void Reset()
         {
-            src_pos = 0;
-            dst_pos = 0;
-
-            flag = 0;
-            bits = 0;
+            this.src_pos = 0;
+            this.dst_pos = 0;
+            this.controlByte = 0;
+            this.bitPosition = 0;
         }
     }
 }
