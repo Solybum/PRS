@@ -11,8 +11,9 @@ namespace PSO.PRS
         /// Compresses data
         /// </summary>
         /// <param name="data">Uncompressed data</param>
+        /// <param name="searchBufferSize">The number of bytes to search for matching patterns. Range: from 255 (0xFF, fastest) to 8191 (0x1FFF, maximum compression). Default value is 8176 (0x1FF0).</param>
         /// <returns>Returns the compressed data</returns>
-        public static byte[] Compress(byte[] data)
+        public static byte[] Compress(byte[] data, int searchBufferSize = 8176)
         {
             Context ctx = new Context(data);
 

@@ -6,7 +6,7 @@ namespace PSO.PRS
 {
     internal class Compression
     {
-        internal static void Compress(Context ctx)
+        internal static void Compress(Context ctx, int searchBufferSize = 8176)
         {
             while (ctx.src_pos < ctx.src.Length)
             {
@@ -14,7 +14,7 @@ namespace PSO.PRS
                 int length = 0;
                 int mlen = 0;
 
-                for (int y = (ctx.src_pos - 1); (y >= 0) && (y >= (ctx.src_pos - 0x1FF0)) && mlen < 256; y--)
+                for (int y = (ctx.src_pos - 1); (y >= 0) && (y >= (ctx.src_pos - searchBufferSize)) && mlen < 256; y--)
                 {
                     mlen = 1;
                     if (ctx.src[y] == ctx.src[ctx.src_pos])
