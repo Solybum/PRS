@@ -17,7 +17,7 @@ namespace PSO.PRS
         {
             Context ctx = new Context(data);
 
-            Compression.Compress(ctx);
+            Compression.Compress(ctx, searchBufferSize);
             Array.Resize(ref ctx.dst, ctx.dst_pos);
 
             return ctx.dst;
