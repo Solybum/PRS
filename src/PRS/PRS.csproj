@@ -6,7 +6,7 @@
     <Description>PRS compression library</Description>
     <Copyright>Copyright © Soleil Rojas 2017</Copyright>
     <Authors>Soleil Rojas</Authors>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageTags>prs compression phantasy star online psobb</PackageTags>
     <PackageProjectUrl>https://github.com/Solybum/PRS</PackageProjectUrl>
